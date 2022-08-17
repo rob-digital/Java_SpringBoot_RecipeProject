@@ -9,24 +9,24 @@ public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     private String description;
     private Integer prepTime;
     private Integer cookTime;
     private Integer servings;
     private String source;
     private String url;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
+    @Enumerated(value = EnumType.STRING)
+    private Dificulty dificulty;
+
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 
     public Set<Ingredient> getIngredients() {
         return ingredients;
@@ -106,5 +106,13 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+    }
+
+    public Dificulty getDificulty() {
+        return dificulty;
+    }
+
+    public void setDificulty(Dificulty dificulty) {
+        this.dificulty = dificulty;
     }
 }
