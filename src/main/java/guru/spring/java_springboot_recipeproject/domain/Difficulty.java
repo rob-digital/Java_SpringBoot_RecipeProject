@@ -1,6 +1,6 @@
 package guru.spring.java_springboot_recipeproject.domain;
 
-public enum Dificulty {
+public enum Difficulty {
 
     EASY,
     MODERATE,
